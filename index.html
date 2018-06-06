@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>名片卡包</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/resume.min.css" rel="stylesheet">
+
+  
+
+
+  </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">名片卡包</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">关于</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#mine">我的</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#search">搜索</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#favourite">收藏卡包</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contract">联系我</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid p-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+          <h1 class="mb-0">
+            <span class="text-primary">名片卡包</span>
+          </h1>
+          <!-- <div class="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
+            <a href="mailto:name@email.com">name@email.com</a>
+          </div> -->
+          <br><br><br>
+          <p class="mb-5">名片卡包是一款基于星云链的个人名片卡管理工具。您可以方便快捷地生成自己的名片卡，也可以收藏别人的名片卡。同时您还可以通过名片卡快速、精确地给对方转账。请添加、取消添加或给对方转账前，先在"我的"模块中搜索您自己的信息。还在等什么，快来使用吧！</p>
+          <p>
+            <div class="noExtensionClass"  id="noExtension">
+            使用前请安装 
+            <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a> 
+            激活Dapp的功能。移动端请安装<a target="_blank" href="https://nano.nebulas.io/index_cn.html">NAS nano 钱包</a>
+            </div>  
+          </p>
+
+        </div>
+      </section>
+
+            <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="mine">
+        <div class="my-auto">
+          <h2 class="mb-5">我的</h2>
+
+          <div class="row clearfix">
+            <div class="col-md-8 column">
+              <input type="text" class="form-control" id="minePhoneNo" placeholder="请输入您的手机号码" />
+            </div>
+            <div class="col-md-4 column">
+              <div id="getInfo">
+                  <div class="resume-date text-md-right">
+                    <button class="btn btn-default btn-block" onclick="searchCard()" style="color: rgb(173,72,43);">搜索</button>
+                 </div>
+              </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="row clearfix" id="mine_message_regist" style="display: none;">
+            <div class="col-md-8 column">
+              <p id="mine_message_warning">您输入的手机号码用户不存在,请添加名片卡</p>
+              <input type="text" class="form-control" id="mine_add_name" placeholder="姓名 *" />  <br>
+              <input type="text" class="form-control" id="mine_add_company" placeholder="公司" />  <br>
+              <input type="text" class="form-control" id="mine_add_position" placeholder="职称" />  <br>
+              <input type="text" class="form-control" id="mine_add_phoneNo" placeholder="手机号码 *" />  <br>
+              <input type="text" class="form-control" id="mine_add_companyAddress" placeholder="地址" />  <br>
+            </div>
+            <div class="col-md-4 column">
+              <div id="getInfo">
+                  <div class="resume-date text-md-right">
+                    <button class="btn btn-default btn-block" id="mine_add" style="color: rgb(173,72,43);" >添加</button>
+                    <button class="btn btn-default btn-block" id="mine_change_complete" style="color: rgb(173,72,43); display: none;" >完成</button>
+                    <button class="btn btn-default btn-block" id="mine_change_dismiss" style="color: rgb(173,72,43); display: none;" >取消</button>
+                 </div>
+              </div>
+            </div>
+        </div>
+        <br>
+
+        <div id="mine_message_show" style="display: none;"> 
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5" >
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0" id="mine_name">姓名</h3>
+              <div class="subheading mb-3" id="mine_company">公司</div>
+              <div id="mine_position">职称</div>
+              <div id="mine_phoneNo">手机号码</div>
+              <p id="mine_companyAddress">地址</p>
+              <p id="mine_address">钱包地址</p>
+            </div>
+
+            <div class="resume-date text-md-right">
+              <button class="btn btn-default btn-block" id="mine_change" style="color: rgb(173,72,43);" >修改</button>
+            </div>
+          </div>
+
+        </div>
+          
+        </div>
+      </section>
+
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="search">
+                <div class="my-auto">
+          <h2 class="mb-5">搜索</h2>
+
+          <div class="row clearfix">
+            <div class="col-md-8 column">
+              <input type="text" class="form-control" id="search_phoneNum" placeholder="请输入搜索的手机号码" />
+            </div>
+            <div class="col-md-4 column">
+              <div id="getInfo">
+                  <div class="resume-date text-md-right"> 
+                    <button class="btn btn-default btn-block" id="search_search" style="color: rgb(173,72,43);">搜索</button>
+                 </div>
+              </div>
+            </div>
+        </div>
+        <br>
+
+          <p id="search_message_warning" style="display: none;">您输入的手机号码用户不存在</p>
+
+          <div id="search_message_show" style="display: none;">
+          
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0" id="search_name">姓名</h3>
+              <div class="subheading mb-3" id="search_company">公司</div>
+              <div id="search_position">职称</div>
+              <div id="search_phoneNo">手机号码</div>
+              <p id="search_companyAddress">地址</p>
+              <p style="display: none;" id="search_address">钱包地址</p>
+              <input type="text" class="form-control" id="search_transferMoney" placeholder="转账金额" />
+            </div>
+            <div class="resume-date text-md-right">
+              <button class="btn btn-default btn-block" id="search_collect" style="color: rgb(173,72,43);">添加</button>
+              <br>
+              <button class="btn btn-default btn-block" id="search_transfer" style="color: rgb(173,72,43);">转账</button>
+            </div>
+          </div>
+
+          </div>
+      
+        </div>
+      </section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="favourite">
+        <div class="my-auto">
+          <h2 class="mb-5">收藏卡包</h2>
+          <p id="collect_p">快去添加你的好友名片吧</p>
+          <!-- first -->
+          <div id="collect_first" style="display: none;">
+            <div class="resume-item d-flex flex-column flex-md-row mb-5" >
+          
+              <div class="resume-content mr-auto">
+              <h3 class="mb-0" id="collect_first_name">姓名</h3>
+              <div class="subheading mb-3" id="collect_first_company">公司</div>
+              <div id="collect_first_position">职称</div>
+              <div id="collect_first_phoneNo">手机号码</div>
+              <p id="collect_first_companyAddress">地址</p>
+              <p style="display: none;" id="collect_first_address">钱包地址</p>
+              <input type="text" class="form-control" id="collect_first_transferMoney" placeholder="转账金额" />
+            </div>
+            <div class="resume-date text-md-right">
+              <button class="btn btn-default btn-block"  onclick="unCollect(0)" style="color: rgb(173,72,43);">取消添加</button>
+              <br>
+              <button class="btn btn-default btn-block" onclick="collectTransfer(0)" style="color: rgb(173,72,43);">转账</button>
+            </div>
+
+            </div>
+          </div>
+  
+        <!-- second -->
+        <div id="collect_second" style="display: none;">
+            <div class="resume-item d-flex flex-column flex-md-row mb-5" >
+          
+              <div class="resume-content mr-auto">
+              <h3 class="mb-0" id="collect_second_name">姓名</h3>
+              <div class="subheading mb-3" id="collect_second_company">公司</div>
+              <div id="collect_second_position">职称</div>
+              <div id="collect_second_phoneNo">手机号码</div>
+              <p id="collect_second_companyAddress">地址</p>
+              <p style="display: none;" id="collect_second_address">钱包地址</p>
+              <input type="text" class="form-control" id="collect_second_transferMoney" placeholder="转账金额" />
+            </div>
+            <div class="resume-date text-md-right">
+              <button class="btn btn-default btn-block" onclick="unCollect(1)" style="color: rgb(173,72,43);">取消添加</button>
+              <br>
+              <button class="btn btn-default btn-block" onclick="collectTransfer(1)" style="color: rgb(173,72,43);">转账</button>
+            </div>
+
+            </div>
+          </div>
+
+        <!-- third -->
+        <div id="collect_third" style="display: none;">
+            <div class="resume-item d-flex flex-column flex-md-row mb-5" >
+          
+              <div class="resume-content mr-auto">
+              <h3 class="mb-0" id="collect_third_name">姓名</h3>
+              <div class="subheading mb-3" id="collect_third_company">公司</div>
+              <div id="collect_third_position">职称</div>
+              <div id="collect_third_phoneNo">手机号码</div>
+              <p id="collect_third_companyAddress">地址</p>
+              <p style="display: none;" id="collect_third_address">钱包地址</p>
+              <input type="text" class="form-control" id="collect_third_transferMoney" placeholder="转账金额" />
+            </div>
+            <div class="resume-date text-md-right">
+              <button class="btn btn-default btn-block" onclick="unCollect(2)" style="color: rgb(173,72,43);">取消添加</button>
+              <br>
+              <button class="btn btn-default btn-block" onclick="collectTransfer(2)" style="color: rgb(173,72,43);">转账</button>
+            </div>
+
+            </div>
+        </div>
+
+        <!-- fourth -->
+        <div id="collect_fourth" style="display: none;">
+            <div class="resume-item d-flex flex-column flex-md-row mb-5" >
+          
+              <div class="resume-content mr-auto">
+              <h3 class="mb-0" id="collect_fourth_name">姓名</h3>
+              <div class="subheading mb-3" id="collect_fourth_company">公司</div>
+              <div id="collect_fourth_position">职称</div>
+              <div id="collect_fourth_phoneNo">手机号码</div>
+              <p id="collect_fourth_companyAddress">地址</p>
+              <p style="display: none;" id="collect_fourth_address">钱包地址</p>
+              <input type="text" class="form-control" id="collect_fourth_transferMoney" placeholder="转账金额" />
+            </div>
+            <div class="resume-date text-md-right">
+              <button class="btn btn-default btn-block" onclick="unCollect(3)" style="color: rgb(173,72,43);">取消添加</button>
+              <br>
+              <button class="btn btn-default btn-block" onclick="collectTransfer(3)" style="color: rgb(173,72,43);">转账</button>
+            </div>
+
+            </div>
+        </div>
+
+        <!-- fifth -->
+        <div id="collect_fifth" style="display: none;">
+            <div class="resume-item d-flex flex-column flex-md-row mb-5" >
+          
+              <div class="resume-content mr-auto">
+              <h3 class="mb-0" id="collect_fifth_name">姓名</h3>
+              <div class="subheading mb-3" id="collect_fifth_company">公司</div>
+              <div id="collect_fifth_position">职称</div>
+              <div id="collect_fifth_phoneNo">手机号码</div>
+              <p id="collect_fifth_companyAddress">地址</p>
+              <p style="display: none;" id="collect_fifth_address">钱包地址</p>
+              <input type="text" class="form-control" id="collect_fifth_transferMoney" placeholder="转账金额" />
+            </div>
+            <div class="resume-date text-md-right">
+              <button class="btn btn-default btn-block" onclick="unCollect(4)" style="color: rgb(173,72,43);">取消添加</button>
+              <br>
+              <button class="btn btn-default btn-block" onclick="collectTransfer(4)" style="color: rgb(173,72,43);">转账</button>
+            </div>
+
+            </div>
+        </div>
+
+        </div>
+
+        <ul class="pagination">
+          <li>
+              <button class="btn btn-default btn-block" id="prePage" style="color: rgb(173,72,43);">上一页</button>
+          </li> 
+          <li>
+              <button class="btn btn-default btn-block" id="nextPage" style="color: rgb(173,72,43);">下一页</button>
+          </li>
+        </ul>
+      </section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contract">
+        <div class="my-auto">
+          <h2 class="mb-5">联系我们</h2>
+          <p>如果您有任何问题，欢迎给我们发邮件</p>
+          <p class="mb-0">邮箱：rickliu414149871@gmail.com</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/resume.min.js"></script>
+
+    <script src="./dist/nebulas.js"></script>
+    <script src="./dist/nebPay.js"></script>
+    <script>
+      "use strict";
+      
+      // var dappAddress = "";    //主网 
+      var dappAddress = "n1eiUWQMXJZowgugE62jQHHeZ2UBKhMLhWB";  //testnet
+
+     var nebulas = require("nebulas"),
+        Account = nebulas.Account,
+        neb = new nebulas.Neb();
+        
+    // neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
+    neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
+    var nasApi = neb.api;
+
+    //我的搜索
+    function searchCard() { 
+      var from = Account.NewAccount().getAddressString();
+      var value = "0";
+      var nonce = "0";
+      var gas_price = "1000000";
+      var gas_limit = "2000000";
+      var callFunction = "searchCard";
+      var phoneNo = document.getElementById("minePhoneNo").value;
+      var callArgs = "[\"" + phoneNo +"\"]";
+      var contract = {
+        "function" : callFunction,
+        "args" : callArgs,
+      };
+
+      neb.api.call(from, dappAddress, value, nonce, gas_price, gas_limit, contract).then(function(resp) {
+        cbSearch(resp);
+      }) .catch(function(err) {
+        console.log("error: " + err.message);
+      })
+    }
+
+    //return of search,
+    function cbSearch(resp) {
+      var result = resp.result;
+      console.log("return of rpc call: " + JSON.stringify(result));
+      var resultStringify = JSON.stringify(result);
+
+      reloadFunction();
+
+      // if (resultStringify.search("key") !== -1 && resultStringify.search("value") !== -1) {
+        
+      //   console.log("ddddd");
+      // }
+      if (resultStringify.search("Error") !== -1) {
+        
+        $("#mine_message_regist").show();
+        $("#mine_message_show").hide();
+      } else if (resultStringify.search("null") !== -1) {
+        alert("null");
+      } else {  //搜索成功
+        result = JSON.parse(resultStringify);
+        result = JSON.parse(result);
+        
+        $("#mine_message_regist").hide();
+        $("#mine_message_show").show();
+        document.getElementById("mine_name").innerHTML = result["name"];
+        document.getElementById("mine_company").innerHTML = result["company"];
+        document.getElementById("mine_position").innerHTML = result["position"];
+        document.getElementById("mine_position").innerHTML = result["position"];
+        document.getElementById("mine_phoneNo").innerHTML = "手机号码: " + result["phoneNo"];
+        document.getElementById("mine_companyAddress").innerHTML = "公司地址: " + result["companyAddress"];
+        document.getElementById("mine_address").innerHTML = "钱包地址: " + result["address"];
+      }
+
+      getCollectedUser();
+    }
+
+    //搜索模块
+    $("#search_search").click(function() {
+      var from = Account.NewAccount().getAddressString();
+      var value = "0";
+      var nonce = "0";
+      var gas_price = "1000000";
+      var gas_limit = "2000000";
+      var callFunction = "searchCard";
+      var phoneNo = document.getElementById("search_phoneNum").value;
+      var callArgs = "[\"" + phoneNo + "\"]";
+      var contract = {
+        "function" : callFunction,
+        "args" : callArgs,
+      };
+
+      neb.api.call(from, dappAddress, value, nonce, gas_price, gas_limit, contract).then(function(resp) {
+        cbSearchSearch(resp);
+      }) .catch(function(err) {
+        console.log("error: " + err.message);
+      })
+    })
+
+    function cbSearchSearch(resp) {
+      var result = resp.result;
+      var resultStringify = JSON.stringify(result);
+
+      if (resultStringify.search("Error") !== -1) {
+
+        $("#search_message_warning").show();
+        $("#search_message_show").hide();
+
+      } else if (resultStringify.search("null") !== -1) {
+        alert("null");
+      } else {
+        result = JSON.parse(resultStringify);
+        result = JSON.parse(result);
+
+        $("#search_message_warning").hide();
+        $("#search_message_show").show();
+        document.getElementById("search_name").innerHTML = result["name"];
+        document.getElementById("search_company").innerHTML = result["company"];
+        document.getElementById("search_position").innerHTML = result["position"];
+        document.getElementById("search_position").innerHTML = result["position"];
+        document.getElementById("search_phoneNo").innerHTML = "手机号码: " + result["phoneNo"];
+        document.getElementById("search_companyAddress").innerHTML = "公司地址: " + result["companyAddress"];
+        document.getElementById("search_address").innerHTML = result["address"];
+        document.getElementById("search_transferMoney").value = "";
+      }
+    }
+
+    var NebPay = require("nebpay");
+    var nebPay = new NebPay();
+    //var callbackUrl = NebPay.config.mainnetUrl; //在主网查询(默认值)
+    var callbackUrl = NebPay.config.testnetUrl; //在测试网查询
+    var serialNumber;
+    var intervalQuery;  //定时查询交易结果  
+
+    //我的 点击添加
+    $("#mine_add").click(function() {
+
+      var name = document.getElementById("mine_add_name").value
+      var company = document.getElementById("mine_add_company").value
+      var position = document.getElementById("mine_add_position").value
+      var phoneNo = document.getElementById("mine_add_phoneNo").value
+      var companyAddress = document.getElementById("mine_add_companyAddress").value
+
+      var to = dappAddress;
+      var value = "0";
+      var callFunction = "setRegister";
+      var callArgs = "[\"" + phoneNo + "\",\"" + name +"\",\"" + company + "\",\"" + position +"\",\""+ companyAddress + "\"]";
+      serialNumber = nebPay.call(to, value, callFunction, callArgs, {
+
+          callback: callbackUrl,    
+          listener: listener  //set listener for extension transaction result
+      });
+    })
+
+    function listener(resp) {
+        console.log("listener resp: " + JSON.stringify(resp))
+        var result = resp;
+
+        var errorCode = JSON.stringify(resp).search("Error");
+        if (errorCode == 1) {
+          alert("Error: Transaction rejected by user.");
+        } else {
+          onrefreshClick(result["txhash"]);
+        }
+    }
+
+    function onrefreshClick(txhash) {
+      nasApi.getTransactionReceipt({hash: txhash}).then(function(receipt) {
+            console.log("status = " + receipt.status);
+            if (receipt.status == 1) {
+              console.log("交易成功,处理后续任务...");
+              clearInterval(intervalQuery)  //清除定时查询
+              alert("添加成功");
+              document.getElementById("minePhoneNo").value = document.getElementById("mine_add_phoneNo").value;
+              reloadFunction();
+              searchCard();
+
+            } else if (receipt.status == 0) {
+                clearInterval(intervalQuery)  //清除定时查询
+                alert("失败");
+            } else {
+              intervalQuery = setTimeout(() => {
+                onrefreshClick(txhash);
+            }, 1000);    //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+            }
+        });
+    }
+
+    //我的 点击修改
+    $("#mine_change").click(function() {
+
+      document.getElementById("mine_add_name").value = document.getElementById("mine_name").innerHTML
+      document.getElementById("mine_add_company").value = document.getElementById("mine_company").innerHTML
+      document.getElementById("mine_add_position").value = document.getElementById("mine_position").innerHTML 
+      var phoneNo = document.getElementById("mine_phoneNo").innerHTML
+      phoneNo = phoneNo.replace("手机号码: ","");
+      document.getElementById("mine_add_phoneNo").value = phoneNo
+      var companyAddress = document.getElementById("mine_companyAddress").innerHTML;
+      companyAddress = companyAddress.replace("公司地址: ","");
+      document.getElementById("mine_add_companyAddress").value = companyAddress;
+ 
+      
+      $("#mine_message_show").hide();       //个人消息模块
+      $("#mine_message_regist").show();     //注册板块
+      $("#mine_change_complete").show();    //完成按钮
+      $("#mine_change_dismiss").show();     //取消按钮
+      $("#mine_add").hide();                //添加按钮
+      $("#mine_message_warning").hide();    //警告提示语
+    })
+
+    //我的 点击取消修改
+    $("#mine_change_dismiss").click(function() {
+      reloadFunction();
+    })
+
+    //我的 点击完成修改
+    $("#mine_change_complete").click(function() {
+      var name = document.getElementById("mine_add_name").value
+      var company = document.getElementById("mine_add_company").value
+      var position = document.getElementById("mine_add_position").value
+      var phoneNo = document.getElementById("mine_add_phoneNo").value
+      var companyAddress = document.getElementById("mine_add_companyAddress").value
+
+      var to = dappAddress;
+      var value = "0";
+      var callFunction = "setChange";
+      var callArgs = "[\"" + phoneNo + "\",\"" + name + "\",\"" + company + "\",\"" + position + "\",\"" + companyAddress + "\"]";
+      serialNumber = nebPay.call(to, value, callFunction, callArgs, {
+ 
+          callback: callbackUrl,
+          listener: listenerChange  //set listener for extension transaction result
+      });
+    })
+
+    function listenerChange(resp) {
+      var errorCode = JSON.stringify(resp).search("Error");
+      if (errorCode == 1) {
+          alert("Error: Transaction rejected by user.");
+      } else {
+        onrefreshChange(resp["txhash"]);
+      }
+    }
+
+    function onrefreshChange(txhash) {
+      nasApi.getTransactionReceipt({hash: txhash}).then(function(receipt) {
+          console.log("status = " + receipt.status);
+          if (receipt.status == 1) {
+            console.log("交易成功,处理后续任务...");
+            clearInterval(intervalQuery);   //清除定时查询
+            alert("添加成功");
+
+            document.getElementById("minePhoneNo").innerHTML = document.getElementById("mine_add_phoneNo").innerHTML;
+            reloadFunction();
+            searchCard();
+
+          } else if (receipt.status == 0) {
+            clearInterval(intervalQuery);   //清除定时查询
+            alert("失败");
+          } else {
+             intervalQuery = setTimeout(() => {
+                onrefreshChange(txhash);
+             },1000); //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+          }
+      });
+    }
+
+    function reloadFunction() {
+      $("#mine_message_show").show();       //个人消息模块
+      $("#mine_message_regist").hide();     //注册板块
+      $("#mine_change_complete").hide();    //完成按钮
+      $("#mine_change_dismiss").hide();     //取消按钮
+      $("#mine_add").show();                //添加按钮
+      $("#mine_message_warning").show();    //警告提示语
+
+      document.getElementById("mine_add_name").value = "";
+      document.getElementById("mine_add_company").value = "";
+      document.getElementById("mine_add_position").value = ""; 
+      document.getElementById("mine_add_phoneNo").value = ""; 
+      document.getElementById("mine_add_companyAddress").value = "";
+    }
+
+    //查询搜索    
+    $("#search_collect").click(function() {
+
+      //判断我的输入框是否有号码
+      var minePhoneNo = document.getElementById("minePhoneNo").value;;
+      if (minePhoneNo.length <= 0) {
+        alert("请先在'我的' 模块输入框中输入您的手机号码.");
+        return;
+      }
+
+      var phoneNo = minePhoneNo;
+      var collectedPhoneNo = document.getElementById("search_phoneNum").value;
+      var to = dappAddress;
+      var value = "0";
+      var callFunction = "setCollect";
+      var callArgs = "[\"" + phoneNo + "\",\"" + collectedPhoneNo + "\"]"
+      serialNumber = nebPay.call(to, value, callFunction, callArgs, {
+
+        callback: callbackUrl,
+        listener: listenerCollect
+      });
+    })
+
+    function listenerCollect(resp) {
+      var errorCode = JSON.stringify(resp).search("Error");
+      if (errorCode == 1) {
+        alert("Error: Transaction rejected by user.");
+      } else {
+        onrefreshCollect(resp["txhash"]);
+      }
+    }
+
+    function onrefreshCollect(txhash) {
+      nasApi.getTransactionReceipt({hash: txhash}).then(function(receipt) {
+          console.log("status = " + receipt.status);
+          if (receipt.status == 1) {
+            console.log("交易成功,处理后续任务...");
+            clearInterval(intervalQuery);   //清除定时查询
+            alert("添加成功");
+
+            getCollectedUser();   //刷新搜索模块
+              console.log("刷新搜索模块");
+
+          } else if (receipt.status == 0) {
+            clearInterval(intervalQuery);   //清除定时查询
+            alert("失败");
+          } else {
+             intervalQuery = setTimeout(() => {
+                onrefreshCollect(txhash);
+             },1000); //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+          }
+      });
+    }
+
+    //转账
+    $("#search_transfer").click(function() {
+
+      var to = document.getElementById("search_address").innerHTML;
+      var value = document.getElementById("search_transferMoney").value;
+      serialNumber = nebPay.pay(to, value, { 
+
+          callback: callbackUrl,
+          listener: listenerTransfer  //set listener for extension transaction result
+      });
+    })
+
+    function listenerTransfer(resp) {
+      var errorCode = JSON.stringify(resp).search("Error");
+      if (errorCode == 1) {
+        alert("Error: Transaction rejected by user.");
+      } else {
+        onrefreshTransfer(resp["txhash"]);
+      }
+    }
+
+    function onrefreshTransfer(txhash) {
+      nasApi.getTransactionReceipt({hash: txhash}).then(function(receipt) {
+          console.log("status = " + receipt.status);
+          if (receipt.status == 1) {
+            console.log("交易成功,处理后续任务...");
+            clearInterval(intervalQuery);   //清除定时查询
+            alert("转账成功");
+          } else if (receipt.status == 0) {
+            clearInterval(intervalQuery);   //清除定时查询
+            alert("失败");
+          } else {
+             intervalQuery = setTimeout(() => {
+                onrefreshTransfer(txhash);
+             },1000); //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+          }
+      });
+    }
+
+    var getCollectedUserIndex = 0;
+    var isLastPage = false;
+    //获取收藏
+    function getCollectedUser() {
+
+      var from = Account.NewAccount().getAddressString();
+      var value = "0";
+      var nonce = "0";
+      var gas_price = "1000000";
+      var gas_limit = "2000000";
+      var callFunction = "getCollectedUser";
+      var phoneNo = document.getElementById("minePhoneNo").value;
+      console.log("phoneNo = " + phoneNo);
+      var limit = 5;
+      var offset = getCollectedUserIndex * limit ;
+      var callArgs = "[\"" + phoneNo + "\",\"" + limit + "\",\"" + offset + "\"]";
+      var contract = {
+        "function" : callFunction,
+        "args" : callArgs,
+      };
+
+      neb.api.call(from, dappAddress, value, nonce, gas_price, gas_limit, contract).then(function(resp) {
+          cbCollectedUserSearch(resp);
+      }) .catch(function(err) {
+        console.log("error:" + err.message);
+      })
+    }
+
+    function cbCollectedUserSearch(resp) {
+      console.log(resp);
+      var result = resp["result"];
+      result = JSON.parse(result);
+      var count = result.length;
+      var resultStringify = JSON.stringify(result);
+
+      if (resultStringify.search("Error") !== -1) {
+        $("#collect_p").show();
+      } else if (resultStringify.search("null") !== -1) {
+        alert("null");
+      } else {  //搜索成功
+
+        if (count == 0) { //如果当前页面无搜索到搜藏用户，则隐藏
+          $("#collect_p").show();
+          $("#collect_first").hide();
+          $("#collect_second").hide();
+          $("#collect_third").hide();
+          $("#collect_fourth").hide();
+          $("#collect_fifth").hide();
+        } else {
+          $("#collect_p").hide();
+          $("#collect_first").hide();
+          $("#collect_second").hide();
+          $("#collect_third").hide();
+          $("#collect_fourth").hide();
+          $("#collect_fifth").hide();
+          if (count == 1) {
+            $("#collect_first").show();
+          } else if (count == 2) {
+            $("#collect_first").show();
+            $("#collect_second").show();
+          } else if (count == 3) {
+            $("#collect_first").show();
+            $("#collect_second").show();
+            $("#collect_third").show();
+          } else if (count == 4) {
+            $("#collect_first").show();
+            $("#collect_second").show();
+            $("#collect_third").show();
+            $("#collect_fourth").show();
+          } else if (count == 5) {
+            $("#collect_first").show();
+            $("#collect_second").show();
+            $("#collect_third").show();
+            $("#collect_fourth").show();
+            $("#collect_fifth").show();
+          }
+        }
+
+        var array = ["first","second","third","fourth","fifth"];
+        for (var i = 0; i < count; i++) {
+          
+          var object = result[i];
+          console.log("name = " + object["name"]);
+          var nameElementId = "collect_" + array[i] + "_name";
+          var companyElementId = "collect_" + array[i] + "_company";
+          var positionElementId = "collect_" + array[i] + "_position";
+          var phoneNoElementId = "collect_" + array[i] + "_phoneNo";
+          var companyAddressElementId = "collect_" + array[i] + "_companyAddress";
+          var addressElementId = "collect_" + array[i] + "_address";
+
+          document.getElementById(nameElementId).innerHTML = object["name"];
+          document.getElementById(companyElementId).innerHTML = object["company"];
+          document.getElementById(positionElementId).innerHTML = object["position"];
+          document.getElementById(phoneNoElementId).innerHTML = object["phoneNo"];
+          document.getElementById(companyAddressElementId).innerHTML = object["companyAddress"];
+          document.getElementById(addressElementId).innerHTML = object["address"];
+        }
+      
+        //判断是否为最后一页
+        if (count <5) {
+          isLastPage = true;
+        }
+
+      }
+    }
+
+    //上一页
+    $("#prePage").click(function() { 
+      if (getCollectedUserIndex == 0) {
+        alert("当前收藏卡包为第一页.");
+        return;
+      }
+      getCollectedUserIndex -= 1;
+      getCollectedUser();
+    })
+
+    //下一页
+    $("#nextPage").click(function() {
+      if (isLastPage) {
+        alert("当前收藏卡包为最后一页.");
+        return;
+      }
+      getCollectedUserIndex += 1;
+      getCollectedUser();
+    })
+
+    //取消添加
+    function unCollect(index) {
+
+      var array = ["first","second","third","fourth","fifth"];
+      var phoneNo = document.getElementById("mine_phoneNo").innerHTML
+      phoneNo = phoneNo.replace("手机号码: ","");
+      var phoneNo = phoneNo;
+
+      var collectedPhoneNoElementId = "collect_" + array[index] + "_phoneNo";
+      var collectedPhoneNo = document.getElementById(collectedPhoneNoElementId).innerHTML;
+
+      var to = dappAddress;
+      var value = "0";
+      var callFunction = "setUncollect";
+      var callArgs = "[\"" + phoneNo + "\",\"" + collectedPhoneNo + "\"]";
+      serialNumber = nebPay.call(to, value, callFunction, callArgs, {
+
+          callback: callbackUrl,    
+          listener: listenerUnCollect  //set listener for extension transaction result
+      });
+    }
+
+    function listenerUnCollect(resp) {
+      var errorCode = JSON.stringify(resp).search("Error");
+      if (errorCode == 1) {
+        alert("Error: Transaction rejected by user.");
+      } else {
+        onrefreshUnCollect(resp["txhash"]);
+      }
+    }
+
+    function onrefreshUnCollect(txhash) {
+      nasApi.getTransactionReceipt({hash: txhash}).then(function(receipt) {
+          console.log("status = " + receipt.status);
+          if (receipt.status == 1) {
+            console.log("交易成功,处理后续任务...");
+            clearInterval(intervalQuery);   //清除定时查询
+            alert("取消添加成功");
+
+            getCollectedUser();
+
+          } else if (receipt.status == 0) {
+            clearInterval(intervalQuery);   //清除定时查询
+            alert("失败");
+          } else {
+             intervalQuery = setTimeout(() => {
+                onrefreshUnCollect(txhash);
+             },1000); //建议查询频率10-15s,因为星云链出块时间为15s,并且查询服务器限制每分钟最多查询10次。
+          }
+      });
+    }
+
+
+    //收藏卡包转账
+    function collectTransfer(index) {
+
+      var array = ["first","second","third","fourth","fifth"];
+      var addressElementId = "collect_" + array[index] + "_address";
+      var valueElementId = "collect_" + array[index] + "_transferMoney";
+
+      var to = document.getElementById(addressElementId).innerHTML;
+      var value = document.getElementById(valueElementId).value;
+      console.log("ddddd");
+      serialNumber = nebPay.pay(to, value, { 
+
+          callback: callbackUrl,
+          listener: listenerTransfer  //set listener for extension transaction result
+      });
+    }
+
+    </script>
+  
+
+  </body>
+
+</html>
