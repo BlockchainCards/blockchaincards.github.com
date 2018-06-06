@@ -72,19 +72,25 @@
             <a href="mailto:name@email.com">name@email.com</a>
           </div> -->
           <br><br><br>
-          <p class="mb-5">名片卡包是一款基于星云链的个人名片卡管理工具。您可以方便快捷地生成自己的名片卡，也可以收藏别人的名片卡。同时您还可以通过名片卡快速、精确地给对方转账。请添加、取消添加或给对方转账前，先在"我的"模块中搜索您自己的信息。还在等什么，快来使用吧！</p>
+
+        
+        
+
+          <p class="mb-5">名片卡包是一款基于星云链的个人名片卡管理工具。您可以方便快捷地生成自己的名片卡，也可以收藏别人的名片卡。同时您还可以通过名片卡快速、精确地给对方转账。还在等什么，快来使用吧！</p>
           <p>
             <div class="noExtensionClass"  id="noExtension">
-            使用前请安装 
+            帮助: <br>
+            1.使用前请安装 
             <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a> 
             激活Dapp的功能。移动端请安装<a target="_blank" href="https://nano.nebulas.io/index_cn.html">NAS nano 钱包</a>
             </div>  
+            2.请添加、取消添加或给对方转账前，先在"我的"模块中搜索您自己的信息。
           </p>
 
         </div>
       </section>
 
-            <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="mine">
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="mine">
         <div class="my-auto">
           <h2 class="mb-5">我的</h2>
 
@@ -99,55 +105,72 @@
                  </div>
               </div>
             </div>
-        </div>
-        <br>
+          </div>
+          <br>
 
-        <div class="row clearfix" id="mine_message_regist" style="display: none;">
-            <div class="col-md-8 column">
-              <p id="mine_message_warning">您输入的手机号码用户不存在,请添加名片卡</p>
-              <input type="text" class="form-control" id="mine_add_name" placeholder="姓名 *" />  <br>
-              <input type="text" class="form-control" id="mine_add_company" placeholder="公司" />  <br>
-              <input type="text" class="form-control" id="mine_add_position" placeholder="职称" />  <br>
-              <input type="text" class="form-control" id="mine_add_phoneNo" placeholder="手机号码 *" />  <br>
-              <input type="text" class="form-control" id="mine_add_companyAddress" placeholder="地址" />  <br>
-            </div>
-            <div class="col-md-4 column">
-              <div id="getInfo">
-                  <div class="resume-date text-md-right">
-                    <button class="btn btn-default btn-block" id="mine_add" style="color: rgb(173,72,43);" >添加</button>
-                    <button class="btn btn-default btn-block" id="mine_change_complete" style="color: rgb(173,72,43); display: none;" >完成</button>
-                    <button class="btn btn-default btn-block" id="mine_change_dismiss" style="color: rgb(173,72,43); display: none;" >取消</button>
-                 </div>
+          <div class="row clearfix" id="mine_message_regist" style="display: none;">
+              <div class="col-md-8 column">
+                <p id="mine_message_warning">您输入的手机号码用户不存在,请添加名片卡</p>
+                <input type="text" class="form-control" id="mine_add_name" placeholder="姓名 *" />  <br>
+                <input type="text" class="form-control" id="mine_add_company" placeholder="公司" />  <br>
+                <input type="text" class="form-control" id="mine_add_position" placeholder="职称" />  <br>
+                <input type="text" class="form-control" id="mine_add_phoneNo" placeholder="手机号码 *" />  <br>
+                <input type="text" class="form-control" id="mine_add_companyAddress" placeholder="地址" />  <br>
+              </div>
+              <div class="col-md-4 column">
+                <div id="getInfo">
+                    <div class="resume-date text-md-right">
+                      <button class="btn btn-default btn-block" id="mine_add" style="color: rgb(173,72,43);" >添加</button>
+                      <button class="btn btn-default btn-block" id="mine_change_complete" style="color: rgb(173,72,43); display: none;" >完成</button>
+                      <button class="btn btn-default btn-block" id="mine_change_dismiss" style="color: rgb(173,72,43); display: none;" >取消</button>
+                   </div>
+                </div>
+              </div>
+          </div>
+          <br>
+
+          <div id="mine_message_show" style="display: none;"> 
+
+            <div class="resume-item d-flex flex-column flex-md-row mb-5" >
+              <div class="resume-content mr-auto">
+                <h3 class="mb-0" id="mine_name">姓名</h3>
+                <div class="subheading mb-3" id="mine_company">公司</div>
+                <div id="mine_position">职称</div>
+                <div id="mine_phoneNo">手机号码</div>
+                <p id="mine_companyAddress">地址</p>
+                <p id="mine_address">钱包地址</p>
+              </div>
+
+              <div class="resume-date text-md-right">
+                <button class="btn btn-default btn-block" id="mine_change" style="color: rgb(173,72,43);" >修改</button>
               </div>
             </div>
-        </div>
-        <br>
-
-        <div id="mine_message_show" style="display: none;"> 
-
-          <div class="resume-item d-flex flex-column flex-md-row mb-5" >
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0" id="mine_name">姓名</h3>
-              <div class="subheading mb-3" id="mine_company">公司</div>
-              <div id="mine_position">职称</div>
-              <div id="mine_phoneNo">手机号码</div>
-              <p id="mine_companyAddress">地址</p>
-              <p id="mine_address">钱包地址</p>
-            </div>
-
-            <div class="resume-date text-md-right">
-              <button class="btn btn-default btn-block" id="mine_change" style="color: rgb(173,72,43);" >修改</button>
-            </div>
+          </div>
+          
+          <div align="center" style="display: none;" id="mine_loading">
+          <div class="sk-circle">
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+          </div>
+          <p>正在处理，请稍候</p>
           </div>
 
-        </div>
-          
         </div>
       </section>
 
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="search">
-                <div class="my-auto">
+        <div class="my-auto">
           <h2 class="mb-5">搜索</h2>
 
           <div class="row clearfix">
@@ -161,7 +184,7 @@
                  </div>
               </div>
             </div>
-        </div>
+          </div>
         <br>
 
           <p id="search_message_warning" style="display: none;">您输入的手机号码用户不存在</p>
@@ -187,6 +210,24 @@
 
           </div>
       
+          <div align="center" style="display: none;" id="search_loading">
+          <div class="sk-circle">
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+          </div>
+          <p>正在处理，请稍候</p>
+          </div>
+
         </div>
       </section>
 
@@ -304,6 +345,25 @@
             </div>
         </div>
 
+
+        <div align="center" style="display: none;" id="collect_loading">
+          <div class="sk-circle">
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+          </div>
+          <p>正在处理，请稍候</p>
+          </div>
+
         </div>
 
         <ul class="pagination">
@@ -353,6 +413,9 @@
 
     //我的搜索
     function searchCard() { 
+
+      $("#mine_loading").show();
+
       var from = Account.NewAccount().getAddressString();
       var value = "0";
       var nonce = "0";
@@ -368,8 +431,10 @@
 
       neb.api.call(from, dappAddress, value, nonce, gas_price, gas_limit, contract).then(function(resp) {
         cbSearch(resp);
+        $("#mine_loading").hide();
       }) .catch(function(err) {
         console.log("error: " + err.message);
+        $("#mine_loading").hide();
       })
     }
 
@@ -411,6 +476,9 @@
 
     //搜索模块
     $("#search_search").click(function() {
+
+      $("#search_loading").show();
+
       var from = Account.NewAccount().getAddressString();
       var value = "0";
       var nonce = "0";
@@ -426,8 +494,10 @@
 
       neb.api.call(from, dappAddress, value, nonce, gas_price, gas_limit, contract).then(function(resp) {
         cbSearchSearch(resp);
+        $("#search_loading").hide();
       }) .catch(function(err) {
         console.log("error: " + err.message);
+        $("#search_loading").hide();
       })
     })
 
@@ -469,6 +539,8 @@
     //我的 点击添加
     $("#mine_add").click(function() {
 
+      $("#mine_loading").show();
+
       var name = document.getElementById("mine_add_name").value
       var company = document.getElementById("mine_add_company").value
       var position = document.getElementById("mine_add_position").value
@@ -493,6 +565,7 @@
         var errorCode = JSON.stringify(resp).search("Error");
         if (errorCode == 1) {
           alert("Error: Transaction rejected by user.");
+          $("#mine_loading").hide();
         } else {
           onrefreshClick(result["txhash"]);
         }
@@ -508,10 +581,11 @@
               document.getElementById("minePhoneNo").value = document.getElementById("mine_add_phoneNo").value;
               reloadFunction();
               searchCard();
-
+              $("#mine_loading").hide();
             } else if (receipt.status == 0) {
                 clearInterval(intervalQuery)  //清除定时查询
                 alert("失败");
+                $("#mine_loading").hide();
             } else {
               intervalQuery = setTimeout(() => {
                 onrefreshClick(txhash);
@@ -549,6 +623,9 @@
 
     //我的 点击完成修改
     $("#mine_change_complete").click(function() {
+
+      $("#mine_loading").show();
+
       var name = document.getElementById("mine_add_name").value
       var company = document.getElementById("mine_add_company").value
       var position = document.getElementById("mine_add_position").value
@@ -570,6 +647,7 @@
       var errorCode = JSON.stringify(resp).search("Error");
       if (errorCode == 1) {
           alert("Error: Transaction rejected by user.");
+          $("#mine_loading").hide();
       } else {
         onrefreshChange(resp["txhash"]);
       }
@@ -587,9 +665,12 @@
             reloadFunction();
             searchCard();
 
+            $("#mine_loading").hide();
+
           } else if (receipt.status == 0) {
             clearInterval(intervalQuery);   //清除定时查询
             alert("失败");
+            $("#mine_loading").hide();
           } else {
              intervalQuery = setTimeout(() => {
                 onrefreshChange(txhash);
@@ -623,6 +704,8 @@
         return;
       }
 
+      $("#search_loading").show();
+
       var phoneNo = minePhoneNo;
       var collectedPhoneNo = document.getElementById("search_phoneNum").value;
       var to = dappAddress;
@@ -640,6 +723,7 @@
       var errorCode = JSON.stringify(resp).search("Error");
       if (errorCode == 1) {
         alert("Error: Transaction rejected by user.");
+        $("#search_loading").hide();
       } else {
         onrefreshCollect(resp["txhash"]);
       }
@@ -654,11 +738,12 @@
             alert("添加成功");
 
             getCollectedUser();   //刷新搜索模块
-              console.log("刷新搜索模块");
+            $("#search_loading").hide();
 
           } else if (receipt.status == 0) {
             clearInterval(intervalQuery);   //清除定时查询
             alert("失败");
+            $("#search_loading").hide();
           } else {
              intervalQuery = setTimeout(() => {
                 onrefreshCollect(txhash);
@@ -669,6 +754,8 @@
 
     //转账
     $("#search_transfer").click(function() {
+
+      $("#search_loading").show();
 
       var to = document.getElementById("search_address").innerHTML;
       var value = document.getElementById("search_transferMoney").value;
@@ -683,6 +770,8 @@
       var errorCode = JSON.stringify(resp).search("Error");
       if (errorCode == 1) {
         alert("Error: Transaction rejected by user.");
+        $("#search_loading").hide();
+        $("#collect_loading").hide();
       } else {
         onrefreshTransfer(resp["txhash"]);
       }
@@ -695,9 +784,13 @@
             console.log("交易成功,处理后续任务...");
             clearInterval(intervalQuery);   //清除定时查询
             alert("转账成功");
+            $("#search_loading").hide();
+            $("#collect_loading").hide();
           } else if (receipt.status == 0) {
             clearInterval(intervalQuery);   //清除定时查询
             alert("失败");
+            $("#search_loading").hide();
+            $("#collect_loading").hide();
           } else {
              intervalQuery = setTimeout(() => {
                 onrefreshTransfer(txhash);
@@ -710,6 +803,8 @@
     var isLastPage = false;
     //获取收藏
     function getCollectedUser() {
+
+      $("#collect_loading").show();
 
       var from = Account.NewAccount().getAddressString();
       var value = "0";
@@ -729,8 +824,10 @@
 
       neb.api.call(from, dappAddress, value, nonce, gas_price, gas_limit, contract).then(function(resp) {
           cbCollectedUserSearch(resp);
+          $("#collect_loading").hide();
       }) .catch(function(err) {
         console.log("error:" + err.message);
+        $("#collect_loading").hide();
       })
     }
 
@@ -835,6 +932,8 @@
     //取消添加
     function unCollect(index) {
 
+      $("#collect_loading").show();
+
       var array = ["first","second","third","fourth","fifth"];
       var phoneNo = document.getElementById("mine_phoneNo").innerHTML
       phoneNo = phoneNo.replace("手机号码: ","");
@@ -858,6 +957,7 @@
       var errorCode = JSON.stringify(resp).search("Error");
       if (errorCode == 1) {
         alert("Error: Transaction rejected by user.");
+        $("#collect_loading").hide();
       } else {
         onrefreshUnCollect(resp["txhash"]);
       }
@@ -872,10 +972,11 @@
             alert("取消添加成功");
 
             getCollectedUser();
-
+            $("#collect_loading").hide();
           } else if (receipt.status == 0) {
             clearInterval(intervalQuery);   //清除定时查询
             alert("失败");
+            $("#collect_loading").hide();
           } else {
              intervalQuery = setTimeout(() => {
                 onrefreshUnCollect(txhash);
@@ -887,6 +988,8 @@
 
     //收藏卡包转账
     function collectTransfer(index) {
+
+      $("#collect_loading").show();
 
       var array = ["first","second","third","fourth","fifth"];
       var addressElementId = "collect_" + array[index] + "_address";
@@ -905,6 +1008,124 @@
     </script>
   
 
+    <style type="text/css">
+
+.sk-circle {
+  margin: 40px auto;
+  width: 40px;
+  height: 40px;
+  position: relative; }
+  .sk-circle .sk-child {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0; }
+  .sk-circle .sk-child:before {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+    height: 15%;
+    background-color: rgb(173,72,43);
+    border-radius: 100%;
+    -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
+            animation: sk-circleBounceDelay 1.2s infinite ease-in-out both; }
+  .sk-circle .sk-circle2 {
+    -webkit-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+            transform: rotate(30deg); }
+  .sk-circle .sk-circle3 {
+    -webkit-transform: rotate(60deg);
+        -ms-transform: rotate(60deg);
+            transform: rotate(60deg); }
+  .sk-circle .sk-circle4 {
+    -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+            transform: rotate(90deg); }
+  .sk-circle .sk-circle5 {
+    -webkit-transform: rotate(120deg);
+        -ms-transform: rotate(120deg);
+            transform: rotate(120deg); }
+  .sk-circle .sk-circle6 {
+    -webkit-transform: rotate(150deg);
+        -ms-transform: rotate(150deg);
+            transform: rotate(150deg); }
+  .sk-circle .sk-circle7 {
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg); }
+  .sk-circle .sk-circle8 {
+    -webkit-transform: rotate(210deg);
+        -ms-transform: rotate(210deg);
+            transform: rotate(210deg); }
+  .sk-circle .sk-circle9 {
+    -webkit-transform: rotate(240deg);
+        -ms-transform: rotate(240deg);
+            transform: rotate(240deg); }
+  .sk-circle .sk-circle10 {
+    -webkit-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+            transform: rotate(270deg); }
+  .sk-circle .sk-circle11 {
+    -webkit-transform: rotate(300deg);
+        -ms-transform: rotate(300deg);
+            transform: rotate(300deg); }
+  .sk-circle .sk-circle12 {
+    -webkit-transform: rotate(330deg);
+        -ms-transform: rotate(330deg);
+            transform: rotate(330deg); }
+  .sk-circle .sk-circle2:before {
+    -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s; }
+  .sk-circle .sk-circle3:before {
+    -webkit-animation-delay: -1s;
+            animation-delay: -1s; }
+  .sk-circle .sk-circle4:before {
+    -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s; }
+  .sk-circle .sk-circle5:before {
+    -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s; }
+  .sk-circle .sk-circle6:before {
+    -webkit-animation-delay: -0.7s;
+            animation-delay: -0.7s; }
+  .sk-circle .sk-circle7:before {
+    -webkit-animation-delay: -0.6s;
+            animation-delay: -0.6s; }
+  .sk-circle .sk-circle8:before {
+    -webkit-animation-delay: -0.5s;
+            animation-delay: -0.5s; }
+  .sk-circle .sk-circle9:before {
+    -webkit-animation-delay: -0.4s;
+            animation-delay: -0.4s; }
+  .sk-circle .sk-circle10:before {
+    -webkit-animation-delay: -0.3s;
+            animation-delay: -0.3s; }
+  .sk-circle .sk-circle11:before {
+    -webkit-animation-delay: -0.2s;
+            animation-delay: -0.2s; }
+  .sk-circle .sk-circle12:before {
+    -webkit-animation-delay: -0.1s;
+            animation-delay: -0.1s; }
+
+@-webkit-keyframes sk-circleBounceDelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes sk-circleBounceDelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+  </style>
   </body>
 
 </html>
