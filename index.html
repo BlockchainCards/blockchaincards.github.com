@@ -340,15 +340,15 @@
     <script>
       "use strict";
       
-      // var dappAddress = "";    //主网 
-      var dappAddress = "n1eiUWQMXJZowgugE62jQHHeZ2UBKhMLhWB";  //testnet
+      var dappAddress = "n1svFsqJXj62GxtC41Li2KPkewEQeNuRMXo";    //主网 
+      // var dappAddress = "n1eiUWQMXJZowgugE62jQHHeZ2UBKhMLhWB";  //testnet
 
      var nebulas = require("nebulas"),
         Account = nebulas.Account,
         neb = new nebulas.Neb();
         
-    // neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
-    neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
+    neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
+    // neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
     var nasApi = neb.api;
 
     //我的搜索
@@ -461,8 +461,8 @@
 
     var NebPay = require("nebpay");
     var nebPay = new NebPay();
-    //var callbackUrl = NebPay.config.mainnetUrl; //在主网查询(默认值)
-    var callbackUrl = NebPay.config.testnetUrl; //在测试网查询
+    var callbackUrl = NebPay.config.mainnetUrl; //在主网查询(默认值)
+    // var callbackUrl = NebPay.config.testnetUrl; //在测试网查询
     var serialNumber;
     var intervalQuery;  //定时查询交易结果  
 
