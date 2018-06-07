@@ -22,10 +22,6 @@
 
     <!-- Custom styles for this template -->
     <link href="css/resume.min.css" rel="stylesheet">
-
-  
-
-
   </head>
 
   <body id="page-top">
@@ -45,13 +41,13 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">关于</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#mine">我的</a>
+          <li class="nav-item" id="mine_section_title" style="display: none;">
+              <a class="nav-link js-scroll-trigger" href="#mine">我的</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="search_section_title" style="display: none;">
             <a class="nav-link js-scroll-trigger" href="#search">搜索</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="collect_section_title" style="display: none;">
             <a class="nav-link js-scroll-trigger" href="#favourite">收藏卡包</a> 
           </li>
           <li class="nav-item">
@@ -68,13 +64,7 @@
           <h1 class="mb-0">
             <span class="text-primary">名片卡包</span>
           </h1>
-          <!-- <div class="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
-            <a href="mailto:name@email.com">name@email.com</a>
-          </div> -->
           <br><br><br>
-
-        
-        
 
           <p class="mb-5">名片卡包是一款基于星云链的个人名片卡管理工具。您可以方便快捷地生成自己的名片卡，也可以收藏别人的名片卡。同时您还可以通过名片卡快速、精确地给对方转账。还在等什么，快来使用吧！</p>
           <p>
@@ -90,86 +80,91 @@
         </div>
       </section>
 
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="mine">
-        <div class="my-auto">
-          <h2 class="mb-5">我的</h2>
+      <div id="mine_section" style="display: none;">
+          
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="mine">
+          <div class="my-auto">
+            <h2 class="mb-5">我的</h2>
 
-          <div class="row clearfix">
-            <div class="col-md-8 column">
-              <input type="text" class="form-control" id="minePhoneNo" placeholder="请输入您的手机号码" />
-            </div>
-            <div class="col-md-4 column">
-              <div id="getInfo">
-                  <div class="resume-date text-md-right">
-                    <button class="btn btn-default btn-block" onclick="searchCard()" style="color: rgb(173,72,43);">搜索</button>
-                 </div>
-              </div>
-            </div>
-          </div>
-          <br>
-
-          <div class="row clearfix" id="mine_message_regist" style="display: none;">
+            <div class="row clearfix">
               <div class="col-md-8 column">
-                <p id="mine_message_warning">您输入的手机号码用户不存在,请添加名片卡</p>
-                <input type="text" class="form-control" id="mine_add_name" placeholder="姓名 *" />  <br>
-                <input type="text" class="form-control" id="mine_add_company" placeholder="公司" />  <br>
-                <input type="text" class="form-control" id="mine_add_position" placeholder="职称" />  <br>
-                <input type="text" class="form-control" id="mine_add_phoneNo" placeholder="手机号码 *" />  <br>
-                <input type="text" class="form-control" id="mine_add_companyAddress" placeholder="地址" />  <br>
+                <input type="text" class="form-control" id="minePhoneNo" placeholder="请输入您的手机号码" />
               </div>
               <div class="col-md-4 column">
                 <div id="getInfo">
                     <div class="resume-date text-md-right">
-                      <button class="btn btn-default btn-block" id="mine_add" style="color: rgb(173,72,43);" >添加</button>
-                      <button class="btn btn-default btn-block" id="mine_change_complete" style="color: rgb(173,72,43); display: none;" >完成</button>
-                      <button class="btn btn-default btn-block" id="mine_change_dismiss" style="color: rgb(173,72,43); display: none;" >取消</button>
+                      <button class="btn btn-default btn-block" onclick="searchCard()" style="color: rgb(173,72,43);">搜索</button>
                    </div>
                 </div>
               </div>
-          </div>
-          <br>
+            </div>
+            <br>
 
-          <div id="mine_message_show" style="display: none;"> 
+            <div class="row clearfix" id="mine_message_regist" style="display: none;">
+                <div class="col-md-8 column">
+                  <p id="mine_message_warning">您输入的手机号码用户不存在,请添加名片卡</p>
+                  <input type="text" class="form-control" id="mine_add_name" placeholder="姓名 *" />  <br>
+                  <input type="text" class="form-control" id="mine_add_company" placeholder="公司" />  <br>
+                  <input type="text" class="form-control" id="mine_add_position" placeholder="职称" />  <br>
+                  <input type="text" class="form-control" id="mine_add_phoneNo" placeholder="手机号码 *" />  <br>
+                  <input type="text" class="form-control" id="mine_add_companyAddress" placeholder="地址" />  <br>
+                </div>
+                <div class="col-md-4 column">
+                  <div id="getInfo">
+                      <div class="resume-date text-md-right">
+                        <button class="btn btn-default btn-block" id="mine_add" style="color: rgb(173,72,43);" >添加</button>
+                        <button class="btn btn-default btn-block" id="mine_change_complete" style="color: rgb(173,72,43); display: none;" >完成</button>
+                        <button class="btn btn-default btn-block" id="mine_change_dismiss" style="color: rgb(173,72,43); display: none;" >取消</button>
+                     </div>
+                  </div>
+                </div>
+            </div>
+            <br>
 
-            <div class="resume-item d-flex flex-column flex-md-row mb-5" >
-              <div class="resume-content mr-auto">
-                <h3 class="mb-0" id="mine_name">姓名</h3>
-                <div class="subheading mb-3" id="mine_company">公司</div>
-                <div id="mine_position">职称</div>
-                <div id="mine_phoneNo">手机号码</div>
-                <p id="mine_companyAddress">地址</p>
-                <p id="mine_address">钱包地址</p>
-              </div>
+            <div id="mine_message_show" style="display: none;"> 
 
-              <div class="resume-date text-md-right">
-                <button class="btn btn-default btn-block" id="mine_change" style="color: rgb(173,72,43);" >修改</button>
+              <div class="resume-item d-flex flex-column flex-md-row mb-5" >
+                <div class="resume-content mr-auto">
+                  <h3 class="mb-0" id="mine_name">姓名</h3>
+                  <div class="subheading mb-3" id="mine_company">公司</div>
+                  <div id="mine_position">职称</div>
+                  <div id="mine_phoneNo">手机号码</div>
+                  <p id="mine_companyAddress">地址</p>
+                  <p id="mine_address">钱包地址</p>
+                </div>
+
+                <div class="resume-date text-md-right">
+                  <button class="btn btn-default btn-block" id="mine_change" style="color: rgb(173,72,43);" >修改</button>
+                </div>
               </div>
             </div>
+            
+            <div align="center" style="display: none;" id="mine_loading">
+            <div class="sk-circle">
+            <div class="sk-circle1 sk-child"></div>
+            <div class="sk-circle2 sk-child"></div>
+            <div class="sk-circle3 sk-child"></div>
+            <div class="sk-circle4 sk-child"></div>
+            <div class="sk-circle5 sk-child"></div>
+            <div class="sk-circle6 sk-child"></div>
+            <div class="sk-circle7 sk-child"></div>
+            <div class="sk-circle8 sk-child"></div>
+            <div class="sk-circle9 sk-child"></div>
+            <div class="sk-circle10 sk-child"></div>
+            <div class="sk-circle11 sk-child"></div>
+            <div class="sk-circle12 sk-child"></div>
+            </div>
+            <p>正在处理，请稍候</p>
+            </div>
           </div>
-          
-          <div align="center" style="display: none;" id="mine_loading">
-          <div class="sk-circle">
-          <div class="sk-circle1 sk-child"></div>
-          <div class="sk-circle2 sk-child"></div>
-          <div class="sk-circle3 sk-child"></div>
-          <div class="sk-circle4 sk-child"></div>
-          <div class="sk-circle5 sk-child"></div>
-          <div class="sk-circle6 sk-child"></div>
-          <div class="sk-circle7 sk-child"></div>
-          <div class="sk-circle8 sk-child"></div>
-          <div class="sk-circle9 sk-child"></div>
-          <div class="sk-circle10 sk-child"></div>
-          <div class="sk-circle11 sk-child"></div>
-          <div class="sk-circle12 sk-child"></div>
-          </div>
-          <p>正在处理，请稍候</p>
-          </div>
-
-        </div>
-      </section>
+        </section>
 
 
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="search">
+      </div>
+      
+
+      <div id="search_section" style="display: none;">
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="search">
         <div class="my-auto">
           <h2 class="mb-5">搜索</h2>
 
@@ -230,8 +225,10 @@
 
         </div>
       </section>
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="favourite">
+     </div>
+      
+      <div id="collect_section" style="display: none;">
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="favourite">
         <div class="my-auto">
           <h2 class="mb-5">收藏卡包</h2>
           <p id="collect_p">快去添加你的好友名片吧</p>
@@ -375,6 +372,7 @@
           </li>
         </ul>
       </section>
+      </div>
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contract">
         <div class="my-auto">
@@ -1126,6 +1124,8 @@
             transform: scale(1); } }
 
   </style>
+
+  <script src="./js/app.js"></script>
   </body>
 
 </html>
